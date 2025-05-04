@@ -1,5 +1,5 @@
 
-# I have totally changed the code to Use the Whisper-ffmpeg method and Langchain-Qwen-HunggingFace Pippeline Method for Indian Users, So just Clone the Repository and Get Guide From ALternative Method written below.
+# I have totally changed the code to Use the Whisper-ffmpeg method and Langchain-Qwen-HuggingFace Pipeline Method for Indian Users, So just Clone the Repository and Get Guide From ALternative Method written below.
 
 # Multilingual Meeting Assistant Backend
 
