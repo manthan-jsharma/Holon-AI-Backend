@@ -19,9 +19,7 @@ This is the FastAPI backend for the Multilingual Meeting Assistant application.
 - Python 3.8 or higher
 - Alibaba Cloud account with ASR service enabled
 - API keys for Alibaba Cloud If no ALibaba Keys, then Follow Below Steps
-# Alternative
-- Qwen Models(I have Used Qwen/Qwen1.5-0.5B which is around 1 GB to download, you can also use Qwen-2 which is smaller)
-- ffmpeg-Whisper, and HuggingFace Pipeline with Langchain
+
 
 ### Environment Variables
 
@@ -96,8 +94,11 @@ Whisper depends on FFmpeg to decode audio.
 ✅ For Ubuntu/Debian: sudo apt update && sudo apt install ffmpeg
 ✅ For macOS (via Homebrew): brew install ffmpeg
 
+3.
+- Qwen Models(I have Used Qwen/Qwen1.5-0.5B which is around 1 GB to download, you can also use Qwen-2 which is smaller)
+- ffmpeg-Whisper, and HuggingFace Pipeline with Langchain
 
-3. This is basically an alternative setup without API keys needed.
+4. This is basically an alternative setup without API keys needed.
 
 4. For Deployment Look for  Render, Railway, Fly.io, or a VPS (like DigitalOcean).
 
