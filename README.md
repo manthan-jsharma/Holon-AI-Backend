@@ -1,5 +1,5 @@
 
-# i have totally changed the code to Use the Whisper-ffmpeg method and Langchain-Qwen-HunggingFace Pippeline Method for Indian Users, So just Clone the Repository and Get Guide From ALternative Method written below.
+# I have totally changed the code to Use the Whisper-ffmpeg method and Langchain-Qwen-HunggingFace Pippeline Method for Indian Users, So just Clone the Repository and Get Guide From ALternative Method written below.
 
 # Multilingual Meeting Assistant Backend
 
@@ -115,4 +115,4 @@ Example: apt install ffmpeg (for Debian/Ubuntu-based images).
 
 Include openai-whisper, torch, ffmpeg-python etc.
 
-4. Test locally inside Docker before deploying.
+4.Test locally inside Docker before deploying.
