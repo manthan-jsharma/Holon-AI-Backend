@@ -1,3 +1,6 @@
+
+# i have totally changed the code to Use the Whisper-ffmpeg method and Langchain-Qwen-HunggingFace Pippeline Method for Indian Users, So just Clone the Repository and Get Guide From ALternative Method written below.
+
 # Multilingual Meeting Assistant Backend
 
 This is the FastAPI backend for the Multilingual Meeting Assistant application.
@@ -87,25 +90,29 @@ Whisper depends on FFmpeg to decode audio.
 ✅ For Ubuntu/Debian: sudo apt update && sudo apt install ffmpeg
 ✅ For macOS (via Homebrew): brew install ffmpeg
 
-3. in the Services/Summarisation files
-Change the Following lines: def get_llm():
-    model_id = "Qwen/Qwen-7B"  # or "Qwen/Qwen-1.8B" for lightweight setup
 
-    tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
+3. This is basically an alternative setup without API keys needed.
 
-    pipe = pipeline(
-        "text-generation",
-        model=model,
-        tokenizer=tokenizer,
-        max_new_tokens=1024,
-        temperature=0.3,
-        do_sample=False,
-    )
-
-    return HuggingFacePipeline(pipeline=pipe)
+4. For Deployment Look for  Render, Railway, Fly.io, or a VPS (like DigitalOcean).
 
 
-Develop the HuggingFacePipeline
 
-4. This is basically an alternative setup without API keys needed.
+## Deployment Tips
+
+1.Use a Dockerfile:
+
+This ensures your server has Python, ffmpeg, and Whisper installed.
+
+You have full control over dependencies.
+
+2.Install ffmpeg system-wide in the Docker image:
+
+Whisper needs access to the ffmpeg binary in the system path.
+
+Example: apt install ffmpeg (for Debian/Ubuntu-based images).
+
+3.Install Whisper in requirements.txt:
+
+Include openai-whisper, torch, ffmpeg-python etc.
+
+4. Test locally inside Docker before deploying.
