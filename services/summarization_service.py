@@ -4,30 +4,38 @@ import re
 from typing import Dict, Any, List, Optional
 import asyncio
 import logging
-from langchain.llms import Qwen
+
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 from langchain.docstore.document import Document
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from langchain.llms import HuggingFacePipeline
 
-# Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Get Qwen API key from environment
-QWEN_API_KEY = os.environ.get("QWEN_API_KEY")
+
+
 
 # Initialize Qwen LLM
 def get_llm():
-    if not QWEN_API_KEY:
-        raise ValueError("QWEN_API_KEY not set in environment variables")
-    
-    return Qwen(
-        qwen_api_key=QWEN_API_KEY,
-        model_name="qwen-max",  # Use the appropriate model
-        temperature=0.3,  # Lower temperature for more factual responses
+    model_id = "Qwen/Qwen-7B"  # or "Qwen/Qwen-1.8B" for lightweight setup
+
+    tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
+
+    pipe = pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        max_new_tokens=1024,
+        temperature=0.3,
+        do_sample=False,
     )
+
+    return HuggingFacePipeline(pipeline=pipe)
 
 async def generate_summary(transcript: str, language: str) -> Dict[str, Any]:
     """
