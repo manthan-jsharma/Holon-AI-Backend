@@ -18,7 +18,10 @@ This is the FastAPI backend for the Multilingual Meeting Assistant application.
 
 - Python 3.8 or higher
 - Alibaba Cloud account with ASR service enabled
-- API keys for Alibaba Cloud
+- API keys for Alibaba Cloud If no ALibaba Keys, then Follow Below Steps
+# Alternative
+- Qwen Models(I have Used Qwen/Qwen1.5-0.5B which is around 1 GB to download, you can also use Qwen-2 which is smaller)
+- ffmpeg-Whisper, and HuggingFace Pipeline with Langchain
 
 ### Environment Variables
 
