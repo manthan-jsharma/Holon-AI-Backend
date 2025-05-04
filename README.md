@@ -69,3 +69,43 @@ The API will be available at http://localhost:8000
   - `pdf_service.py`: PDF generation
 - `uploads/`: Directory for uploaded audio files
 - `pdfs/`: Directory for generated PDFs
+
+
+## Alternate Method
+- For indian users, both the QWEN and Langchain wont be working without the access to Alibaba Console, which is not available in india.
+- To tackle tht=at issue Follow this Provided Steps:
+1. Install Dependencies
+- pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118  # for CUDA 11.8
+- pip install git+https://github.com/openai/whisper.git
+- pip install transformers accelerate
+- pip install langchain huggingface_hub
+- pip install ffmpeg-python
+
+ 2. Install FFmpeg (System Level)
+Whisper depends on FFmpeg to decode audio.
+
+✅ For Ubuntu/Debian: sudo apt update && sudo apt install ffmpeg
+✅ For macOS (via Homebrew): brew install ffmpeg
+
+3. in the Services/Summarisation files
+Change the Following lines: def get_llm():
+    model_id = "Qwen/Qwen-7B"  # or "Qwen/Qwen-1.8B" for lightweight setup
+
+    tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
+
+    pipe = pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        max_new_tokens=1024,
+        temperature=0.3,
+        do_sample=False,
+    )
+
+    return HuggingFacePipeline(pipeline=pipe)
+
+
+Develop the HuggingFacePipeline
+
+4. This is basically an alternative setup without API keys needed.
