@@ -83,6 +83,9 @@ The API will be available at http://localhost:8000/docs
 - pip install transformers accelerate
 - pip install langchain huggingface_hub
 - pip install ffmpeg-python
+- einops==0.7.0
+- transformers_stream_generator==0.0.4
+- accelerate==0.27.2
 
  2. Install FFmpeg (System Level)
 Whisper depends on FFmpeg to decode audio.
