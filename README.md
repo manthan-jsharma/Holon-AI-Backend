@@ -4,8 +4,8 @@ This is the FastAPI backend for the Multilingual Meeting Assistant application.
 
 ## Features
 
-- Audio transcription using Alibaba Cloud ASR
-- Meeting summarization using LangChain with Qwen/DeepSeek
+- Audio transcription using Alibaba Cloud ASR, Alternative Whisper-FFmpeg.
+- Meeting summarization using LangChain with Qwen/DeepSeek with HuggingFace-Pipeline and transformers.
 - PDF generation of meeting notes
 - RESTful API for CRUD operations
 
@@ -46,7 +46,7 @@ ALIBABA_APP_KEY=your_app_key
    uvicorn main:app --reload
    \`\`\`
 
-The API will be available at http://localhost:8000
+The API will be available at http://localhost:8000/docs
 
 ## API Endpoints
 
