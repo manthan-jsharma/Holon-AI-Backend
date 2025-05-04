@@ -4,14 +4,14 @@ from typing import Dict, Any, Optional, List
 import logging
 import whisper
 import torch
-from pathlib import Path
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Whisper model configuration
-WHISPER_MODEL_SIZE = os.environ.get("WHISPER_MODEL_SIZE", "base")  # Options: tiny, base, small, medium, large
+WHISPER_MODEL_SIZE = os.environ.get("WHISPER_MODEL_SIZE", "tiny")  # Options: tiny, base, small, medium, large
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Cache for loaded model

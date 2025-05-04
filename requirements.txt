@@ -11,3 +11,6 @@ openai-whisper==20231117
 torch==2.1.0
 ffmpeg-python==0.2.0
 transformers==4.51.3
+einops==0.7.0
+transformers_stream_generator==0.0.4
+accelerate==0.27.2

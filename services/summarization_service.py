@@ -10,7 +10,7 @@ from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.summarize import load_summarize_chain
 from langchain.docstore.document import Document
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from langchain.llms import HuggingFacePipeline
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -21,10 +21,10 @@ logger = logging.getLogger(__name__)
 
 # Initialize Qwen LLM
 def get_llm():
-    model_id = "Qwen/Qwen-7B"  # or "Qwen/Qwen-1.8B" for lightweight setup
+    model_id = "google/flan-t5-small"  # for lightweight setup
 
     tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_id, trust_remote_code=True, device_map="auto")
 
     pipe = pipeline(
         "text-generation",
