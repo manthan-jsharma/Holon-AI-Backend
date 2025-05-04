@@ -75,11 +75,11 @@ The API will be available at http://localhost:8000
 - For indian users, both the QWEN and Langchain wont be working without the access to Alibaba Console, which is not available in india.
 - To tackle tht=at issue Follow this Provided Steps:
 1. Install Dependencies
--pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118  # for CUDA 11.8
--pip install git+https://github.com/openai/whisper.git
--pip install transformers accelerate
--pip install langchain huggingface_hub
--pip install ffmpeg-python
+- pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118  # for CUDA 11.8
+- pip install git+https://github.com/openai/whisper.git
+- pip install transformers accelerate
+- pip install langchain huggingface_hub
+- pip install ffmpeg-python
 
  2. Install FFmpeg (System Level)
 Whisper depends on FFmpeg to decode audio.
