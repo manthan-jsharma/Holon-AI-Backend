@@ -1,9 +1,8 @@
-
-# The system now supports a hybrid architecture, offering both cloud-based processing via Alibaba Cloud and a fully local, open-source pipeline (Whisper + HuggingFace) for Indian users without cloud console access..
-
 # 🎙️ Multilingual Meeting Assistant Backend
 
 This is a robust **FastAPI-based** backend designed to power the Multilingual Meeting Assistant. It streamlines the lifecycle of meeting documentation—from raw audio ingestion and high-accuracy transcription to intelligent summarization and professional PDF report generation.
+
+The system now supports a **hybrid architecture**, offering both cloud-based processing via Alibaba Cloud and a fully local, open-source pipeline (Whisper + HuggingFace) for **INDIAN** users without cloud console access.
 
 ---
 
