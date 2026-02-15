@@ -153,4 +153,3 @@ When deploying to platforms like **Render, Railway, or a VPS**:
 
 ---
 
-**Would you like me to generate a professional Dockerfile to accompany this README?**
